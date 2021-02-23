@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+                <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                    <div class="form-group">
+                        {{ form.Photo }}
+
+                    </div>
+
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <a href="{% url 'list'%}"><button type="button" class="btn btn-secondary">Cancelar</button></a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

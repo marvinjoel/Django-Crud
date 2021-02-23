@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="my-4">
+        <small>{{ title }}</small>
+    </h1>
+
+    <div class="row">
+        <div class="col-12" style="overflow-x: scroll">
+            <table id="DTable" class="table">
+
+              <thead class="thead-dark">
+                <tr>
+<!--                    <th scope="col">ID</th>-->
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Profesión</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for usuario in object_list %}
+                <tr>
+<!--                    <td>{{ usuario.id }}</td>-->
+                    <td>{{ usuario.Name }}</td>
+                    <td>{{ usuario.Asname }}</td>
+                    <td>{{ usuario.Age }}</td>
+                    <td>{{ usuario.Profetion }}</td>
+                    <td>
+                        <img src="{{ usuario.Photo }}" alt="" width="50px", height="50px">
+                    </td>
+                    <td>
+                        <a href="{% url 'update' usuario.id %}"><button type="button" class="btn btn-outline-primary btn-sm">Editar</button></a>
+                        <a href="{% url 'delete' usuario.id %}"><button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+
+            </table>
+
+        </div>
+    </div>
+<!--            Botos de lisar-->
+            <br><br>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="btn btn-outline-info btn-md" href="{% url 'create'%}">+ Nuevo Usuario</a>
+                </li>
+          </ul>
+{% endblock %}
+{% block javascript %}
+<script type="application/javascript">
+    $(function(){
+        $('#DTable').DataTable({
+            responsive: true,
+            autoWidth: false
+        });
+    })
+</script>
+{% endblock javascript %}
+
+
