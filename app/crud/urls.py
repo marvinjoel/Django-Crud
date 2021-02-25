@@ -1,6 +1,7 @@
 
 from django.urls import path
-from crud.views import UsuarioList, UsuarioCreate, UsuarioUpdate, UsuarioDelete
+
+from app.crud.views import UsuarioList, UsuarioCreate, UsuarioUpdate, UsuarioDelete
 
 urlpatterns = [
     path('', UsuarioList.as_view(), name='list'),

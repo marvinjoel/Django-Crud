@@ -1,11 +1,14 @@
 from django.forms import *
 from django.utils.safestring import mark_safe
 
-from crud.models import UsuarioModel
+
 
 
 
 #Listar todo el formulario
+from app.crud.models import UsuarioModel
+
+
 class UsuarioForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
