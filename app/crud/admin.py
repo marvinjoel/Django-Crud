@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from crud.models import UsuarioModel
+from app.crud.models import UsuarioModel
 
 
 @admin.register(UsuarioModel)

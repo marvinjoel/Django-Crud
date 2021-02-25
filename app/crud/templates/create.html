@@ -1,8 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
+
+
+
+
+{% block title %}Crear Usuarios {% endblock title %}
 
 {% block content %}
     <div class="row">
         <div class="col-12">
+
                 <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 

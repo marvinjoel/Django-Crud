@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
-from crud.forms import UsuarioForm
-from crud.models import UsuarioModel
+from app.crud.forms import UsuarioForm
+from app.crud.models import UsuarioModel
 
 
 class UsuarioList(ListView):
