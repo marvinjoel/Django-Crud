@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 
 class UsuarioModel(models.Model):
@@ -7,7 +9,13 @@ class UsuarioModel(models.Model):
     Asname = models.CharField(verbose_name='Apellido', max_length=200)
     Age = models.IntegerField(verbose_name='Edad')
     Profetion = models.CharField(verbose_name='Profesión', max_length=50)
-    Photo = models.ImageField(upload_to='static/usuarios/', max_length=350, verbose_name='Foto', blank=True, null=True)
+    Photo = models.ImageField(upload_to='usuarios/', max_length=350, verbose_name='Foto', blank=True, null=True)
+
+    def delete(self, *args, **kwargs):
+        if os.path.isfile(self.Photo.path):
+            os.remove(self.Photo.path)
+        super(UsuarioModel, self).delete(*args, **kwargs)
+    
 
     def __str__(self):
         return self.Name

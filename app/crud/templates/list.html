@@ -31,7 +31,7 @@
                     <td>{{ usuario.Age }}</td>
                     <td>{{ usuario.Profetion }}</td>
                     <td>
-                        <img src="{{ usuario.Photo }}" alt="" width="50px", height="50px">
+                        <img src="{{ usuario.Photo.url }}" alt="" width="50px", height="50px">
                     </td>
                     <td>
                         <a href="{% url 'update' usuario.id %}"><button type="button" class="btn btn-outline-primary btn-sm">Editar</button></a>
